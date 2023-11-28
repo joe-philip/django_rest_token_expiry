@@ -1,6 +1,6 @@
 [project]
-name = "rest_token_expiry"
-version = "0.0.2"
+name = "django_rest_token_expiry"
+version = "0.0.3"
 authors = [
   { name="Joe Philip", email="joe.philip@hotmail.co.in" },
 ]
