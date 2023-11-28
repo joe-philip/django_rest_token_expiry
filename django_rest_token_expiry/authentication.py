@@ -14,7 +14,7 @@ class ExpiringTokenAuthentication(TokenAuthentication):
             raise AuthenticationFailed('Invalid Token')
         if (hasattr(token.user, 'is_active')) and (not token.user.is_active):
             raise AuthenticationFailed('Inactive User')
-        (now, expiry) = (datetime.now(), settings.TOKEN_EXPIRY)
+        (now, expiry) = (datetime.now(), settings.AUTHENTICATION_TOKEN_EXPIRY)
         if not isinstance(expiry, timedelta):
             raise ValueError(
                 "TOKEN_EXPIRY variable must be a timedelta instance")
