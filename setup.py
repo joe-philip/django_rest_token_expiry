@@ -7,12 +7,12 @@ with open('README.md', 'r') as f:
 pyproject = load('pyproject.toml')
 
 setup(
-    name=pyproject['project'].get('name', 'rest_token_expiry'),
+    name=pyproject['project'].get('name', 'django_rest_token_expiry'),
     version=pyproject['project'].get('version', '0'),
     description=pyproject['project'].get('description'),
     author=pyproject['project'].get('authors')[0].get('name'),
     package_dir={'': '.'},
-    package_data={'rest_token_expiry': ['authentication.py']},
+    package_data={'django_rest_token_expiry': ['authentication.py']},
     packages=find_packages(),
     long_description=long_description,
     long_description_content_type="text/markdown",
