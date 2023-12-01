@@ -7,7 +7,31 @@ from rest_framework.exceptions import AuthenticationFailed
 
 
 class ExpiringTokenAuthentication(TokenAuthentication):
+    """
+    Token authentication that supports token expiry.
+
+    This authentication class extends the TokenAuthentication class
+    provided by Django REST Framework. It adds support for token expiry
+    by checking the expiration time of the token.
+
+    Methods:
+        authenticate_credentials(key): Authenticate the credentials using the provided key.
+    """
     def authenticate_credentials(self, key):
+        """
+        Authenticate the credentials using the provided key.
+
+            Args:
+                key (str): The authentication key.
+
+            Raises:
+                AuthenticationFailed: If the token is invalid, the user is inactive,
+                    or the token has expired.
+
+            Returns:
+                User: The authenticated user.
+
+            """
         try:
             token = Token.objects.get(key=key)
         except Token.DoesNotExist:
